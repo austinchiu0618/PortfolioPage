@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>AustinChiu</title>
+		<script src="https://unpkg.com/vue@next"></script>
+		<style>
+			html {
+				scroll-behavior: smooth;
+			}
+		</style>
+	</head>
+	<body class="bg-main overflow-x-hidden pb-20">
+		<!-- fixed header -->
+		<div id="header" class="header z-50 fixed top-0 left-0 w-full laptop:py-6 tablet:py-4 py-2 tablet:bg-transparent bg-white/80 tablet:backdrop-blur-none backdrop-blur-xl duration-200">
+			<ul class="flex justify-center items-center tablet:text-xl text-sm font-medium">
+				<li class="px-6 py-4"><a href="#skills">Skills</a></li>
+				<li class="px-6 py-4"><a href="#portfolio">Side Project</a></li>
+				<!-- <li class="px-6 py-4">Contact</li> -->
+				<li class="px-6 py-4">
+					<img class="w-6 h-6 object-cover" src="./image/github.png" alt="" />
+				</li>
+			</ul>
+		</div>
+		<!-- 主視覺 -->
+		<div class="section relative h-full tablet:pt-0 pt-24 flex flex-col items-center">
+			<!-- TOP 背景SVG -->
+			<div class="tablet:relative absolute tablet:top-0 top-16 left-0 w-full">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1006" width="1440" height="1006" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px)">
+					<defs>
+						<clipPath id="__lottie_element_2"><rect width="1440" height="1006" x="0" y="0"></rect></clipPath>
+						<image xlink:href="./image/img_0.png"></image>
+						<image xlink:href="./image/img_1.png"></image>
+					</defs>
+					<g clip-path="url(#__lottie_element_2)">
+						<g class="png" transform="matrix(0.5,0,0,0.5,0,0)" opacity="1" style="display: block"><image width="2880px" height="2012px" preserveAspectRatio="xMidYMid slice" xlink:href="./image/img_1.png"></image></g>
+						<g class="png" transform="matrix(0.5,0,0,0.5,-1.5,0)" opacity="1" style="display: block"><image width="2078px" height="455px" preserveAspectRatio="xMidYMid slice" xlink:href="./image/img_0.png"></image></g>
+					</g>
+				</svg>
+			</div>
+			<div class="tablet:absolute relative tablet:top-1/3 tablet:left-3/4 tablet:-translate-x-1/2 tablet:-translate-y-1/4 tablet:w-[20vw] w-[40vw] tablet:h-auto h-[40vw]">
+				<img class="rounded-t-full rounded-b-full w-full h-full object-cover" src="./image/chiu.png" alt="" />
+			</div>
+			<div class="tablet:absolute relative tablet:top-1/3 tablet:left-1/4 tablet:-translate-x-1/3 tablet:-translate-y-1/4 laptop:text-9xl tablet:text-7xl text-6xl font-bold">
+				<h1 class="tablet:block hidden">Austin</h1>
+				<h1 class="tablet:block hidden">Chiu</h1>
+				<h1 class="tablet:hidden block">Austin Chiu</h1>
+				<h4 class="laptop:text-8xl tablet:text-6xl text-5xl font-medium handFont">Front-end developer</h4>
+			</div>
+		</div>
+		<!-- 捲動文字 -->
+		<div class="section tablet:-mt-20 mt-30 overflow-hidden">
+			<div id="imageText" class="tablet:w-[3000px] tablet:h-[260px] w-[2000px] h-[172px]">
+				<img class="-translate-x-1/2 w-auto h-full object-cover object-right" src="./image/chiu.svg" alt="" />
+			</div>
+		</div>
+		<!-- 技能 -->
+		<div id="skills" class="desktop:py-24 laptop:py-20 tablet:py-12 py-8 desktop:px-[6vw] laptop:px-[6vw] tablet:px-16 px-5 flex flex-col">
+			<div class="h-full flex justify-center items-baseline gap-x-10">
+				<span class="flex-[0_0_auto] laptop:text-7xl tablet:text-6xl text-5xl font-bold text-black">Skills</span>
+				<div class="grow w-full h-fit border-b-4 border-solid border-second"></div>
+			</div>
+			<div class="self-center desktop:w-[1280px] laptop:w-[1024px] w-full py-10 grid desktop:grid-cols-5 laptop:grid-cols-4 tablet:grid-cols-4 grid-cols-3 desktop:gap-x-8 laptop:gap-x-6 gap-x-4">
+				<!-- 前端技能 -->
+				<div v-for="item in skills" class="relative p-5 laptop:h-[340px] h-[30vw] bg-second tablet:rounded-[50px] rounded-[28px] flex justify-center items-center">
+					<div class="absolute top-0 left-0 w-full h-full">
+						<img class="laptop:rounded-t-[50px] tablet:rounded-t-[40px] rounded-t-[32px] w-full h-full object-cover" src="./image/card.png" alt="" />
+					</div>
+					<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 laptop:w-[130px] w-[11vw] laptop:h-[130px] h-[11vw] rounded-full bg-white flex justify-center items-center">
+						<span class="laptop:w-[86px] tablet:w-[8vw] w-[6vw]">
+							<img class="w-full h-full object-cover" :src="item.src" alt="" />
+						</span>
+					</div>
+					<div class="absolute top-5 laptop:left-1/4 left-[30%] rotate-90 origin-top-left tablet:block hidden">
+						<span class="laptop:text-5xl text-[4vw] font-bold text-text">{{item.name}}</span>
+					</div>
+					<div class="absolute top-2 left-1/2 -translate-x-1/2 tablet:hidden block">
+						<span class="laptop:text-5xl text-[4vw] font-bold text-text">{{item.name}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 作品集 -->
+		<div id="portfolio" class="desktop:my-20 laptop:my-14 tablet:my-8 laptop:py-28 py-20 desktop:px-[6vw] laptop:px-[6vw] tablet:px-10 px-5 bg-second rounded-[80px] flex flex-col">
+			<div class="h-full laptop:pb-10 flex justify-center items-baseline gap-x-10">
+				<span class="flex-[0_0_auto] laptop:text-7xl tablet:text-6xl text-5xl font-bold text-white">Portfolio</span>
+				<div class="grow w-full h-fit border-b-4 border-solid border-main"></div>
+			</div>
+			<div class="self-center desktop:w-[1320px] laptop:w-[1020px] desktop:px-10 laptop:px-6 w-full py-10 flex flex-col gap-y-14">
+				<div v-for="item,index in portfolio" class="grid tablet:grid-cols-2 grid-cols-1 tablet:gap-5 gap-3 items-center">
+					<!-- :class="item.id % 2 === 0 ? 'order-2':'order-1'" -->
+					<div class="flex flex-col justify-end gap-y-5 tablet:order-1 order-2">
+						<p class="text-4xl font-bold">{{item.name}}</p>
+						<p class="text-xl font-normal">{{item.content}}</p>
+						<a class="self-end" :href="item.link" target="_blank">
+							<button class="w-[160px] h-[60px] bg-white rounded-full text-xl font-normal text-second">See More</button>
+						</a>
+					</div>
+					<!-- :class="item.id % 2 === 0 ? 'order-1':'order-2'" -->
+					<div class="desktop:h-[320px] laptop:h-[260px] tablet:h-[240px] h-[50vw] bg-main rounded-[50px] tablet:order-1 order-1">
+						<img class="rounded-[50px] w-full h-full object-cover" :src="item.src" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="bundle.js"></script>
+		<script>
+			window.onload = function () {
+				window.onscroll = function () {
+					imageText.style.transform = `translateX(${window.scrollY / 2}px)`;
+					if (window.scrollY > 60) {
+						header.classList.remove("tablet:bg-transparent");
+						header.classList.remove("tablet:backdrop-blur-none");
+						header.classList.add("tablet:bg-white/70");
+						header.classList.add("tablet:backdrop-blur-2xl");
+					} else {
+						header.classList.remove("tablet:bg-white/70");
+						header.classList.remove("tablet:backdrop-blur-2xl");
+						header.classList.add("tablet:bg-transparent");
+						header.classList.add("tablet:backdrop-blur-none");
+					}
+				};
+			};
+			const vm_skills = Vue.createApp({
+				data() {
+					return {
+						skills: [
+							{ name: "HTML", src: "./image/icon/html.svg" },
+							{ name: "CSS", src: "./image/icon/css.svg" },
+							{ name: "Javascript", src: "./image/icon/js.svg" },
+							{ name: "PUG", src: "./image/icon/pug.svg" },
+							{ name: "SCSS", src: "./image/icon/sass.svg" },
+							{ name: "Bootstrap", src: "./image/icon/bootstrap.svg" },
+							{ name: "Tailwind", src: "./image/icon/tailwindcss.svg" },
+							{ name: "jQuery", src: "./image/icon/jquery.svg" },
+							{ name: "VUE", src: "./image/icon/vue.svg" },
+							{ name: "Node", src: "./image/icon/node.svg" },
+						],
+					};
+				},
+			});
+			vm_skills.mount("#skills");
+
+			const vm_portfolio = Vue.createApp({
+				data() {
+					return {
+						portfolio: [
+							{
+								id: 9,
+								name: "SiCar愛車酷",
+								content: "Andy老爹之汽車資料/社群網站，當中包含發布動態、文章、投票等功能，並且可以建立自己的車酷，去紀錄為加油、保養維修等紀錄。現階段僅製作mobile website版本，使用的是Vue (nust.js)框架，搭配Tailwind以及使用Vant UI元件庫。",
+								link: "https://garage.sicar.com.tw/",
+								src: "./image/project/09.png",
+							},
+							{
+								id: 8,
+								name: "良品敦法",
+								content: "書法家 周良敦老師的個人形象網站， 此網站是使用VUE(Nuxt.js)框架，搭配Pug模板語言以及Scss，與後端配合串接API。",
+								link: "https://www.lpdf-art.com/",
+								src: "./image/project/08.svg",
+							},
+							{
+								id: 7,
+								name: "橘焱胡同",
+								content: "知名燒肉食材購物網，使用pug模板語言搭配Scss以及jQuery，透過webpack打包靜態文件，交給後端去做資料串接。",
+								link: "https://gyenshop.com.tw/",
+								src: "./image/project/07.png",
+							},
+							{
+								id: 6,
+								name: "UBER TEA",
+								content: "學習Vue後所自己嘗試製作的飲料訂購頁面，是以Vue Router、Vuex所做的SPA網頁，使用SCSS來寫style，以及製作RWD效果，並且加上ElementUI元件庫。",
+								link: "https://austinchiu0618.github.io/orderDrink",
+								src: "./image/project/04.png",
+							},
+							{
+								id: 5,
+								name: "捕魚機遊戲",
+								content: "使用cocos creator製作的捕魚遊戲，當中嘗試使用typescript來編寫。",
+								link: "https://austinchiu0618.github.io/fish_hunter_game/",
+								src: "./image/project/06.png",
+							},
+							{
+								id: 4,
+								name: "MINI KNIFE GAME",
+								content: "根據網路教學嘗試使用cocos creator製作小遊戲。",
+								link: "https://austinchiu0618.github.io/cocod_minegame_knife/",
+								src: "./image/project/05.png",
+							},
+							{
+								id: 3,
+								name: "EVERLAND",
+								content: "與資策會夥伴一起製作的團隊作品，當中我所負責的是使用ThreeJS製作的3D首頁以及使用到了NodeJS的會員系統、後端資料庫的串接，會員頁面則是用到了VueJS框架並配合Bootstrap來撰寫。",
+								link: "https://youtu.be/AqCcH5xfd7E",
+								src: "./image/project/03.png",
+							},
+							{
+								id: 2,
+								name: "狂賭之淵",
+								content: "此網頁是在資策會時期，以日本動漫“狂賭之淵”做為網站主題，當中包含了天竺鼠車車賽跑以及狂賭之淵當中的一個牌類遊戲。此外，本次有加上了後端的使用，來製作會員註冊登入後端是用到了MySQL以及PHP，利用htaccess轉址搭配前端ajax請求資料。",
+								link: "https://austinchiu0618.github.io/2ndLab/",
+								src: "./image/project/02.png",
+							},
+							{
+								id: 1,
+								name: "東京回憶錄",
+								content: "此作品為資策會初期學完HTML,CSS,Javascript之後第一次嘗試的作品，主要是練習CSS動畫以及Javascript事件的操作。",
+								link: "https://austinchiu0618.github.io/1stLab/",
+								src: "./image/project/01.png",
+							},
+						],
+						isOnTop: false,
+					};
+				},
+			});
+			vm_portfolio.mount("#portfolio");
+		</script>
+	</body>
+</html>

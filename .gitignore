@@ -1,0 +1,9 @@
+node_modules
+.vscode
+webpack.config.js
+tailwind.config.js
+step.txt
+postcss.config.js
+package.json
+package-lock.json
+src
